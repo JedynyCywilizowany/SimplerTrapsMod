@@ -1,0 +1,11 @@
+WorldGenMessage: {
+	ExtraTraps: Placing more traps
+	StructureTraps: Placing even more traps
+	UpgradeTraps: Upgrading traps
+
+	NoTraps: {
+		ExtraTraps: Not placing more traps
+		StructureTraps: Not placing even more traps
+		UpgradeTraps: Not upgrading traps
+	}
+}

@@ -1,0 +1,11 @@
+WorldGenMessage: {
+	ExtraTraps: Rozmieszczanie więcej pułapek
+	StructureTraps: Rozmieszczanie jeszcze więcej pułapek
+	UpgradeTraps: Ulepszanie pułapek
+
+	NoTraps: {
+		ExtraTraps: Nie rozmieszczanie więcej pułapek
+		StructureTraps: Nie rozmieszczanie jeszcze więcej pułapek
+		UpgradeTraps: Nie ulepszanie pułapek
+	}
+}

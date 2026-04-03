@@ -1,0 +1,21 @@
+No Traps seed is one thing, but ever thought that Terraria's traps are just too complex and unpredictable? Too many variations that you have to remember and watch out for?
+Well, this mod aims to simplify them,
+that's why it totally does not include:
+
+- Traps painted to camouflage better, occasionally echo coated
+
+- Vertical Dart Traps
+
+- Venom Dart Traps replacing some normal Dart Traps
+
+- Less obvious boulder traps
+
+- Lava pits
+
+- And definitely not more!
+
+
+Disclaimer:
+This mod only affects WorldGen, has no effect on worlds that are already generated.
+Does not need to be enabled to play on worlds generated with it.
+This might change in a future update.
