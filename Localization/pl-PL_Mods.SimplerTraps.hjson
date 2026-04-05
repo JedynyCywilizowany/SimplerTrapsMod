@@ -9,3 +9,33 @@ WorldGenMessage: {
 		UpgradeTraps: Nie ulepszanie pułapek
 	}
 }
+
+Configs: {
+	SimplerTrapsConfig: {
+		DisplayName: Ustawienia Simpler Traps
+
+		NoTrapsScaling: {
+			Label: Skalowanie NoTraps
+			Tooltip: Czy seed No Traps może dostosowywać podane tu szanse
+		}
+
+		PaintChance: {
+			Label: Szansa na kamuflaż
+			Tooltip: Szansa, że pułapki zostaną pomalowane na kolor pobliskich bloków, żeby mniej się rzucały w oczy
+		}
+
+		EchoCoatChance: {
+			Label: Szansa na powłokę echa
+			Tooltip: Wciąż za dużo pułapek? Spokojnie, im wyżej ustawisz tą szansę, tym mniej "zobaczysz" pułapek
+		}
+
+		VenomDartTrapChance: {
+			Label: Szansa na jadowite Pułapki Strzałkowe
+			Tooltip:
+				'''
+				Szansa, że Pułapki Strzałkowe zostaną zastąpione jadowitymi
+				Te są tak rzadko wykorzystywane, że większość ludzi pewnie nawet nie wie że istnieją, więc postanowiłem dać im "szansę"
+				'''
+		}
+	}
+}

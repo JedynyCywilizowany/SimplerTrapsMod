@@ -1,6 +1,6 @@
 displayName= Simpler Traps
 author= Jedyny Cywilizowany
-version= 1.0
+version= 1.1
 buildIgnore= bin/*, obj/*, Properties/*, .gitignore, README.*, *.csproj, *.sln, *.slnx, .editorconfig
-side= NoSync
+side= Client
 modReferences= CywilizowanysMod

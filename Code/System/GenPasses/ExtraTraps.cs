@@ -54,7 +54,7 @@ public class ExtraTraps() : GenPass(nameof(SimplerTraps)+"/"+nameof(ExtraTraps),
 				while (Main.tile[x2+width,y2].LiquidAmount!=0)
 				{
 					width++;
-					if (x2>=Main.maxTilesX-10) return false;
+					if (x2+width>=Main.maxTilesX-10) return false;
 				}
 				width--;
 				const int MinWidth=5;
@@ -233,7 +233,7 @@ public class ExtraTraps() : GenPass(nameof(SimplerTraps)+"/"+nameof(ExtraTraps),
 			while (!WorldGen.SolidOrSlopedTile(x2,y2))
 			{
 				y2+=direction;
-				if (y2>=Main.maxTilesY-300||y<Main.worldSurface) return false;
+				if (y2>=Main.maxTilesY-300||y2<Main.worldSurface) return false;
 			}
 
 			if ((y2<y&&y-y2<3)) return false;

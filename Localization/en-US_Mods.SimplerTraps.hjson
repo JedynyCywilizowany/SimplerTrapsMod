@@ -9,3 +9,33 @@ WorldGenMessage: {
 		UpgradeTraps: Not upgrading traps
 	}
 }
+
+Configs: {
+	SimplerTrapsConfig: {
+		DisplayName: Simpler Traps Config
+
+		NoTrapsScaling: {
+			Label: NoTraps Scaling
+			Tooltip: Whether the No Traps seed can adjust the chances specified here
+		}
+
+		PaintChance: {
+			Label: Camouflage Chance
+			Tooltip: The chance for traps to be painted to the color of nearby blocks, making them stand out less
+		}
+
+		EchoCoatChance: {
+			Label: Echo Coat Chance
+			Tooltip: Still too many traps? Don't worry, the higher you set this chance, the less traps you will "see"
+		}
+
+		VenomDartTrapChance: {
+			Label: Venom Dart Trap Chance
+			Tooltip:
+				'''
+				The chance for Venom Dart Traps to replace normal Dart Traps
+				They see so little use, most people probably don't even know they exist, so I decided to give them a "chance"
+				'''
+		}
+	}
+}

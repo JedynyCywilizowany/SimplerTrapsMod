@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using CywilizowanysMod.Common;
 using Microsoft.Xna.Framework;
+using SimplerTraps.Config;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.IO;
 using Terraria.Map;
+using Terraria.ModLoader;
 using Terraria.ObjectData;
 using Terraria.WorldBuilding;
 
@@ -19,6 +21,8 @@ public class UpgradeTraps() : GenPass(nameof(SimplerTraps)+"/"+nameof(UpgradeTra
 	{
 		SimplerTrapsSystem.ProgressMessage(nameof(UpgradeTraps),progress);
 
+		var config=ModContent.GetInstance<SimplerTrapsConfig>();
+
 		//For now it's that simple, but it's better to keep this as a function in case the IDs get modified
 		static IEnumerable<int> UsedPaints()
 		{
@@ -28,14 +32,25 @@ public class UpgradeTraps() : GenPass(nameof(SimplerTraps)+"/"+nameof(UpgradeTra
 		{
 			return (TileID.Sets.Boulders[type]&&type!=TileID.RollingCactus)||((TileID.Sets.IsAMechanism[type]||TileID.Sets.IsATrigger[type])&&type!=TileID.ActiveStoneBlock&&type!=TileID.InactiveStoneBlock)||type==TileID.BoulderStatue;
 		}
+		bool ScaledChance(int chance,int extraRolls)
+		{
+			if (config.NoTrapsScaling&&WorldGen.noTrapsWorldGen)
+			{
+				for (int i=0;i<extraRolls;i++) if (WorldGen.genRand.NextBool(chance,100)) return true;
+			}
+			return WorldGen.genRand.NextBool(chance,100);
+		}
 		
 		List<KeyValuePair<int,Color>> paintColorLookup=new();
-		paintColorLookup.Add(default);
-		foreach (var paintId in UsedPaints())
+		if (config.PaintChance!=0)
 		{
-			//I found no better way to check a paint's color than what it looks like on the map
-			var mapTile=MapTile.Create(MapHelper.tileLookup[TileID.Stone],byte.MaxValue,(byte)paintId);
-			paintColorLookup.Add(new(paintId,MapHelper.GetMapTileXnaColor(ref mapTile)));
+			paintColorLookup.Add(default);
+			foreach (var paintId in UsedPaints())
+			{
+				//I found no better way to check a paint's color than what it looks like on the map
+				var mapTile=MapTile.Create(MapHelper.tileLookup[TileID.Stone],byte.MaxValue,(byte)paintId);
+				paintColorLookup.Add(new(paintId,MapHelper.GetMapTileXnaColor(ref mapTile)));
+			}
 		}
 
 		List<Point> adjacentTiles=new();
@@ -53,11 +68,11 @@ public class UpgradeTraps() : GenPass(nameof(SimplerTraps)+"/"+nameof(UpgradeTra
 				{
 					int type=tile.TileType;
 
-					if (type==TileID.Traps&&tile.TileFrameY==0&&WorldGen.genRand.NextBool(WorldGen.noTrapsWorldGen ? 2 : 10))
+					if (type==TileID.Traps&&tile.TileFrameY==0&&ScaledChance(config.VenomDartTrapChance,5))
 					{
 						//Venom dart trap
 						int variant=5;
-						if (WorldGen.noTrapsWorldGen&&WorldGen.genRand.NextBool(10))
+						if (WorldGen.noTrapsWorldGen&&ScaledChance(config.VenomDartTrapChance,1))
 						{
 							//Super dart trap
 							variant=1;
@@ -74,7 +89,7 @@ public class UpgradeTraps() : GenPass(nameof(SimplerTraps)+"/"+nameof(UpgradeTra
 						byte? changedColor=null;
 						bool turnInvisible=false;
 						
-						if (WorldGen.genRand.NextBool((WorldGen.noTrapsWorldGen ? 9 : 5),10))
+						if (ScaledChance(config.PaintChance,3))
 						{
 							adjacentTiles.Clear();
 							for (int i=0;i<width;i++)
@@ -86,8 +101,8 @@ public class UpgradeTraps() : GenPass(nameof(SimplerTraps)+"/"+nameof(UpgradeTra
 							for (int i=0;i<height;i++)
 							{
 								int y2=y+i;
-								if (WorldGen.SolidTileAllowRightSlope(x-1,y2)) adjacentTiles.Add(new(x-1,y2));
-								if (WorldGen.SolidTileAllowLeftSlope(x+width,y2)) adjacentTiles.Add(new(x+width,y2));
+								if (WorldGen.SolidTileAllowLeftSlope(x-1,y2)) adjacentTiles.Add(new(x-1,y2));
+								if (WorldGen.SolidTileAllowRightSlope(x+width,y2)) adjacentTiles.Add(new(x+width,y2));
 							}
 
 							if (adjacentTiles.Count!=0)
@@ -121,7 +136,7 @@ public class UpgradeTraps() : GenPass(nameof(SimplerTraps)+"/"+nameof(UpgradeTra
 								changedColor=(byte)paintColorLookup[WorldGen.genRand.Next(possibilities)].Key;
 							}
 						}
-						if (WorldGen.genRand.NextBool(WorldGen.noTrapsWorldGen ? 10 : 25))
+						if (ScaledChance(config.EchoCoatChance,4))
 						{
 							turnInvisible=true;
 						}
