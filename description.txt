@@ -4,13 +4,15 @@ that's why it totally does not include:
 
 - Traps painted to camouflage better, occasionally echo coated (chance configurable)
 
+- Less obvious boulder traps
+
+- Weaponized Boulder Statues
+
 - Vertical Dart Traps
 
 - Venom Dart Traps replacing some normal Dart Traps (chance configurable)
 
-- Less obvious boulder traps
-
-- Weaponized Boulder Statues
+- Ceiling geysers
 
 - Lava pits
 

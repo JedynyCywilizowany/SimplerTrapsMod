@@ -1,6 +1,6 @@
 using System;
 using System.Reflection;
-using CywilizowanysMod.Common;
+using Colony;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.ID;

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using CywilizowanysMod.Common;
+using Colony;
 using Microsoft.Xna.Framework;
 using SimplerTraps.Config;
 using Terraria;
@@ -107,10 +107,10 @@ public class UpgradeTraps() : GenPass(nameof(SimplerTraps)+"/"+nameof(UpgradeTra
 
 							if (adjacentTiles.Count!=0)
 							{
-								var targetColor=CywilsUtils.GetMapColorTile(Main.tile[WorldGen.genRand.Next(adjacentTiles)].TileType);
+								var targetColor=ColonyUtils.GetMapColorTile(Main.tile[WorldGen.genRand.Next(adjacentTiles)].TileType);
 
 								Array.Clear(colorDifference);
-								paintColorLookup[0]=new(PaintID.None,CywilsUtils.GetMapColorTile(type));
+								paintColorLookup[0]=new(PaintID.None,ColonyUtils.GetMapColorTile(type));
 								int colorDiffI=0;
 								if (paintColorLookup[0].Value.A<byte.MaxValue)
 								{

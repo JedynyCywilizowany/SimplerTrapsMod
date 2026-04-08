@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using CywilizowanysMod.Common;
+using Colony;
 using SimplerTraps.GenPasses;
 using Terraria;
 using Terraria.ID;
@@ -10,7 +10,7 @@ namespace SimplerTraps;
 
 public class SimplerTrapsSystem : ModSystem
 {
-	public override void Load()
+	public override void PostSetupContent()
 	{
 		TileID.Sets.IsAMechanism.RevertibleModify(TileID.BoulderStatue,true);
 	}

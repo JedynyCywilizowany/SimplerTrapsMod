@@ -1,4 +1,4 @@
-using CywilizowanysMod.Common;
+using Colony;
 using Terraria.ModLoader;
 
 namespace SimplerTraps;
