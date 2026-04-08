@@ -1,4 +1,4 @@
-using Colony;
+using ColonyLib;
 using Terraria.ModLoader;
 
 namespace SimplerTraps;

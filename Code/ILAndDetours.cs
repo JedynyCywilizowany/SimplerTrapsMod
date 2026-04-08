@@ -1,6 +1,6 @@
 using System;
 using System.Reflection;
-using Colony;
+using ColonyLib;
 using MonoMod.Cil;
 using Terraria;
 using Terraria.ID;

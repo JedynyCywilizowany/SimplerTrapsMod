@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Colony;
+using ColonyLib;
 using SimplerTraps.GenPasses;
 using Terraria;
 using Terraria.ID;

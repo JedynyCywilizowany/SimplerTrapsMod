@@ -1,4 +1,4 @@
-using Colony.Debug;
+using ColonyLib.Debug;
 using Terraria;
 using Terraria.ID;
 using Terraria.WorldBuilding;
