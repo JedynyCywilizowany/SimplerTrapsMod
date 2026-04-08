@@ -10,7 +10,7 @@ public class VerticalDartTrap : TrapForTheTrapGod
 	public override bool? TryPlace(int plateX,int plateY,ref int trapX,ref int trapY,ref int plateStyle)
 	{
 		var plateTile=Main.tile[plateX,plateY];
-		if (plateTile.LiquidAmount==0||plateTile.LiquidType!=LiquidID.Lava) return false;
+		if (plateTile.LiquidAmount!=0&&plateTile.LiquidType==LiquidID.Lava) return false;
 
 		trapX+=WorldGen.genRand.Next(-1,2);
 		if (WorldGen.SolidOrSlopedTile(trapX,trapY)) return false;
