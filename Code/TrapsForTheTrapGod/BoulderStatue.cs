@@ -12,7 +12,7 @@ public class BoulderStatue : TrapForTheTrapGod
 		var plateTile=Main.tile[plateX,plateY];
 		if (plateTile.LiquidAmount!=0&&plateTile.LiquidType==LiquidID.Lava) return false;
 
-		if (trapY<GenVars.rockLayer) return false;
+		if (trapY<GenVars.rockLayer||trapY>GenVars.lavaLine) return false;
 		while (!WorldGen.SolidOrSlopedTile(trapX,trapY))
 		{
 			trapY--;
@@ -27,9 +27,9 @@ public class BoulderStatue : TrapForTheTrapGod
 
 		for (int checkY=0;checkY<3;checkY++)
 		{
-			if (WorldGen.SolidOrSlopedTile(trapX,trapY-checkY)) return false;
-			if (WorldGen.SolidOrSlopedTile(trapX-1,trapY-checkY)) toLeft=false;
-			if (WorldGen.SolidOrSlopedTile(trapX+1,trapY-checkY)) toRight=false;
+			if (WorldGen.SolidOrSlopedTile(trapX,trapY+checkY)) return false;
+			if (WorldGen.SolidOrSlopedTile(trapX-1,trapY+checkY)) toLeft=false;
+			if (WorldGen.SolidOrSlopedTile(trapX+1,trapY+checkY)) toRight=false;
 		}
 
 		if (!toLeft&&!toRight) return false;
@@ -42,14 +42,14 @@ public class BoulderStatue : TrapForTheTrapGod
 			WorldGen.KillTile(trapX+1,clearY);
 		}
 		
-		for (int placeX=0;placeX<2;placeX++)
+		for (int placeY=0;placeY<3;placeY++) for (int placeX=0;placeX<2;placeX++)
 		{
-			var placedTile=Main.tile[trapX+placeX,trapY];
+			var placedTile=Main.tile[trapX+placeX,trapY+placeY];
 			placedTile.ClearTile();
 			placedTile.HasTile=true;
-			placedTile.TileType=TileID.GeyserTrap;
+			placedTile.TileType=TileID.BoulderStatue;
 			placedTile.TileFrameX=(short)(placeX*18);
-			placedTile.TileFrameY=0;
+			placedTile.TileFrameY=(short)(placeY*18);
 		}
 		//The actuator is needed here, so that WorldGen sees this as a trap (and not an abandoned trigger) and doesn't disarm it
 		//For some reason, a Boulder Statue is not seen as a mechanism, but an actuator, even without a solid block, is
