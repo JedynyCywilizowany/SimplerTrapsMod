@@ -56,7 +56,7 @@ public class BoulderStatue : TrapForTheTrapGod
 		var wireTopTile=Main.tile[trapX,trapY];
 		wireTopTile.HasActuator=true;
 
-		ColonyDebugSystem.AddWorldGenMarker(new(trapX,trapY),"Terraria/Images/Item_"+ItemID.BoulderStatue);
+		ColonyDebug.AddWorldGenMarker(new(trapX,trapY),"Terraria/Images/Item_"+ItemID.BoulderStatue);
 
 		return true;
 	}

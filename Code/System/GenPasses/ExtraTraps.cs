@@ -101,7 +101,7 @@ public class ExtraTraps() : GenPass(nameof(SimplerTraps)+"/"+nameof(ExtraTraps),
 		SimplerTrapsSystem.ProgressMessage(nameof(ExtraTraps),progress);
 
 		//original is 0.05
-		double num377=Main.maxTilesX*0.02;
+		double num377=Main.maxTilesX*0.025;
 		if (WorldGen.noTrapsWorldGen)
 		{
 			num377=((!WorldGen.tenthAnniversaryWorldGen&&!WorldGen.notTheBees) ? (num377*100.0) : (num377*5.0));

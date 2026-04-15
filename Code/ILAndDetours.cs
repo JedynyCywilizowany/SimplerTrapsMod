@@ -85,7 +85,7 @@ partial class SimplerTraps : Mod
 		}
 		catch (Exception e)
 		{
-			Instance.Logger.Error(e.Message);
+			Instance.Logger.Error(e);
 		}
 		/*
 		for (int i=0;i<il.Instrs.Count;i++) il.Instrs[i].Offset=i;

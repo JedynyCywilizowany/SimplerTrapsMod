@@ -38,7 +38,7 @@ public class VerticalDartTrap : TrapForTheTrapGod
 			(rightOrientation ? (short)72 : (short)90)
 		);
 
-		ColonyDebugSystem.AddWorldGenMarker(new(trapX,trapY),"Terraria/Images/Item_"+ItemID.DartTrap);
+		ColonyDebug.AddWorldGenMarker(new(trapX,trapY),"Terraria/Images/Item_"+ItemID.DartTrap);
 		
 		return true;
 	}

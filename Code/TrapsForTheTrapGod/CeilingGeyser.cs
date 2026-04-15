@@ -46,7 +46,7 @@ public class CeilingGeyser : TrapForTheTrapGod
 			placedTile.TileFrameY=0;
 		}
 		
-		ColonyDebugSystem.AddWorldGenMarker(new(trapX,trapY),"Terraria/Images/Item_"+ItemID.GeyserTrap);
+		ColonyDebug.AddWorldGenMarker(new(trapX,trapY),"Terraria/Images/Item_"+ItemID.GeyserTrap);
 
 		return true;
 	}

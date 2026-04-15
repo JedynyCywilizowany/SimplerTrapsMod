@@ -201,7 +201,7 @@ public class LavaPit : TrapForTheTrapGod
 			}
 		}
 
-		ColonyDebugSystem.AddWorldGenMarker(new(x2+(width/2),y2),"Terraria/Images/Item_"+ItemID.LavaBucket);
+		ColonyDebug.AddWorldGenMarker(new(x2+(width/2),y2),"Terraria/Images/Item_"+ItemID.LavaBucket);
 		
 		return null;
 	}
