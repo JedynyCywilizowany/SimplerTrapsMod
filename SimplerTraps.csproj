@@ -7,6 +7,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\CywilizowanysMod\CywilizowanysMod.csproj" />
+		<ProjectReference Include="..\ColonyLib\ColonyLib.csproj" />
 	</ItemGroup>
 </Project>
