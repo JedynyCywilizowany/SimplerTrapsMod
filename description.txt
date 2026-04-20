@@ -21,6 +21,9 @@ that's why it totally does not include:
 
 Disclaimer:
 This mod only affects WorldGen, has no effect on worlds that are already generated.
-Does not need to be enabled to play on worlds generated with it.
+Does not need to be enabled to play on worlds generated with it, unless also using a mod that depends on it.
 
-...And if you're hosting a server, you don't have to tell anyone you used it ;)
+This mod is focused on reworking vanilla traps, rather than adding new ones.
+That's still not simple enough for you? Want something completely new?
+Check out Even Simpler Traps:
+https://steamcommunity.com/sharedfiles/filedetails/?id=3710891722
