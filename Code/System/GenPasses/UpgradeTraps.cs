@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using ColonyLib;
+using ColonyLib.Debug;
 using Microsoft.Xna.Framework;
 using SimplerTraps.Config;
 using Terraria;
@@ -72,10 +73,12 @@ public class UpgradeTraps() : GenPass(nameof(SimplerTraps)+"/"+nameof(UpgradeTra
 					{
 						//Venom dart trap
 						int variant=5;
+						ColonyDebug.AddWorldGenMarker(x,y,"Terraria/Images/Item_"+ItemID.VenomDartTrap);
 						if (WorldGen.noTrapsWorldGen&&ScaledChance(config.VenomDartTrapChance,1))
 						{
 							//Super dart trap
 							variant=1;
+							ColonyDebug.AddWorldGenMarker(x,y,"Terraria/Images/Item_"+ItemID.SuperDartTrap);
 						}
 						tile.TileFrameY=(short)(18*variant);
 					}
